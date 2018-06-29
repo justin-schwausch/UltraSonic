@@ -26,7 +26,7 @@ input clk,
 input JA0,
 input btnC,
 output JA1,
-output[4:0] LED
+output[4:0] led
     );
     
     reg counten;
@@ -34,31 +34,17 @@ output[4:0] LED
     reg[4:0] dave;
 
     assign JA1 = btnC;
-    assign LED = dave;
+    assign led = dave;
     
-    always @(posedge JA0)
-    begin
-    
-    counten <= 1'b1;
-    
-    end
-    
-    always @(negedge JA0)
-    begin
-    
-    counten <= 1'b0;
-    
-    end
     
     always @(posedge clk)
     
-    if (counten == 1'b1)
+    if (JA0 == 1'b1)
     begin
         count <= count + 1;
-        LED <= 1'b1;
     end
     
-    else if (counten <= 1'b0)
+    else if (JA0 <= 1'b0)
     begin
         
         if (count == 22'b1110011111101111000000) //too far
