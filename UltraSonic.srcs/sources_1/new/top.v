@@ -25,6 +25,9 @@ module top(
 input clk,
 input JA0,
 input btnC,
+input[15:0] sw,
+output [3:0] an,
+output [6:0] seg,
 output JA1,
 output[4:0] led
     );
@@ -36,6 +39,14 @@ output[4:0] led
 
     assign JA1 = btnC;
     assign led = dave;
+    
+    seven_seg Useven_seg(
+    
+    .clk (clk),
+    .sw  (sw),
+    .an  (an),
+    .seg (seg)
+    );
     
     
     always @(posedge clk)
