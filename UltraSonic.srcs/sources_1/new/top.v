@@ -31,6 +31,7 @@ output[4:0] led
     
     reg counten;
     reg[21:0] count;
+    reg[21:0] countf;
     reg[4:0] dave;
 
     assign JA1 = btnC;
@@ -46,22 +47,23 @@ output[4:0] led
     
     else if (JA0 <= 1'b0)
     begin
-        
-        if (count == 22'b1110011111101111000000) //too far
+        countf <=count;
+        count <= 22'b0;
+        if (countf == 22'b1110011111101111000000) //too far
             dave <= 5'b00000;
     
-        else if (count >= 22'b1000110110011010000000) //400 cm
+        else if (countf >= 22'b1000110110011010000000) //400 cm
             dave <= 5'b00001;
         
-        else if (count >= 22'b0110101000110011100000) //300 cm
+        else if (countf >= 22'b0110101000110011100000) //300 cm
             dave <= 5'b00010;
         
-        else if (count >= 22'b0100011011001101000000) //200 cm
+        else if (countf >= 22'b0100011011001101000000) //200 cm
             dave <= 5'b00011;
                 
-        else if (count >= 22'b0010001101100110100000) //100 cm
-            dave <= 5'b00100;        
-        
+        else if (countf >= 22'b0010001101100110100000) //100 cm
+            dave <= 5'b00100;
+                    
 
     end
         
