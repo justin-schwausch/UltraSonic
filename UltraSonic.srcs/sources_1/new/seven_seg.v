@@ -1,28 +1,37 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/14/2018 02:45:05 PM
-// Design Name: 
-// Module Name: eight_bit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Name: Justin Schwausch
+// Class: ECE 3331
+// Project: Seven Segment Display
+// Target: Basys 3 Board
+// Last Modified: 6/30/2018
+//
+// Based on Code From: Noah Pratt
+//
+// This program takes is used to operate the four seven segment displays on the Basys 3 board.
+// It takes in a 16-Bit binary value, converts it to hexadecimal, and displays those digits on
+//  the display.
+//
+// clk is the main clock
+// msg is the 16-Bit message
+// output is the anode that selects the digit
+// seg is which segments are lit on the selected digit
+//
+// Example Instantiation:
+//
+// seven_seg Useven_seg(
+//  .clk (clk),
+//  .msg  (countf),
+//  .an  (an),
+//  .seg (seg)
+// );
 //////////////////////////////////////////////////////////////////////////////////
+
 
 
 module seven_seg(
     input clk,
-    input [15:0] sw,
+    input [15:0] msg,
     output [3:0] an,
     output [6:0] seg
     );
@@ -45,22 +54,22 @@ module seven_seg(
         
        2'b00 :  //When the 2 MSB's are 00 enable the fourth display
         begin
-         sseg = sw[3:0];
+         sseg = msg[3:0];
          an_temp = 4'b1110;
         end
        2'b01:  //When the 2 MSB's are 01 enable the third display
         begin
-         sseg = sw[7:4];
+         sseg = msg[7:4];
          an_temp = 4'b1101;
         end
-       2'b10:
+       2'b10: //enable the second display
        begin
-        sseg = sw[11:8];
+        sseg = msg[11:8];
         an_temp = 4'b1011;
        end
-       2'b11:
+       2'b11: //enable the first display
        begin
-        sseg = sw[15:12];
+        sseg = msg[15:12];
         an_temp = 4'b0111;
        end
        endcase
@@ -97,7 +106,7 @@ reg toggle = 1'b0;
 always @ (posedge clk)
     begin
         begin
-        count1 <= count1 + sw;
+        count1 <= count1 + msg;
         end
     if(count1 >= 50000000)
      begin
