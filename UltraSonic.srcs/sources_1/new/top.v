@@ -76,7 +76,7 @@ output[15:0] led //leds
 
     always @(posedge clk)
     begin
-    if (counting) //if echo detected
+    if (countint) //if echo detected
     begin
         count <= count + 1; //count echo pulse width
     end
