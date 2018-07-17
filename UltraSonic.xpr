@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="36" Path="C:/Xilinx/Projects/UltraSonic/UltraSonic.xpr">
+<Project Version="7" Minor="36" Path="C:/Xilinx/Vivado/Projects/UltraSonic/UltraSonic.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="9bb794c20c974a40bdcf312c8f42010a"/>

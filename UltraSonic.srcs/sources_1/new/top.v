@@ -71,7 +71,7 @@ output[15:0] led //leds
     
     always @(posedge clk) //take in value of JA1 to mitigate metastability
     begin
-    countint <= JA1;
+    countint <= JA0;
     end
 
     always @(posedge clk)

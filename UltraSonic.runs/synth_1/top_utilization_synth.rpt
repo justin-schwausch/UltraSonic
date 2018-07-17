@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Fri Jun 29 21:49:42 2018
-| Host         : DESKTOP-VFCAHNJ running 64-bit major release  (build 9200)
+| Date         : Mon Jul 16 19:18:48 2018
+| Host         : MSI running 64-bit major release  (build 9200)
 | Command      : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
 | Design       : top
 | Device       : 7a35tcpg236-1
@@ -33,8 +33,8 @@ Table of Contents
 | Slice LUTs*             |   40 |     0 |     20800 |  0.19 |
 |   LUT as Logic          |   40 |     0 |     20800 |  0.19 |
 |   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
-| Slice Registers         |   93 |     0 |     41600 |  0.22 |
-|   Register as Flip Flop |   93 |     0 |     41600 |  0.22 |
+| Slice Registers         |   94 |     0 |     41600 |  0.23 |
+|   Register as Flip Flop |   94 |     0 |     41600 |  0.23 |
 |   Register as Latch     |    0 |     0 |     41600 |  0.00 |
 | F7 Muxes                |    0 |     0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |      8150 |  0.00 |
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 93    |          Yes |       Reset |            - |
+| 94    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,7 +149,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   93 |        Flop & Latch |
+| FDRE     |   94 |        Flop & Latch |
 | OBUF     |   28 |                  IO |
 | CARRY4   |   18 |          CarryLogic |
 | LUT6     |   15 |                 LUT |
