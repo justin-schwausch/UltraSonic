@@ -17,11 +17,11 @@
 module top(
 
 input clk, //main clock
-input JA0, // echo pin
-output [3:0] an, //seven seg anode
-output [6:0] seg, //seven seg segments
-output JA1, //trigger pin
-output[15:0] led //leds
+input echo, // echo pin
+//output [3:0] an, //seven seg anode
+//output [6:0] seg, //seven seg segments
+output trigger, //trigger pin
+output[15:0] dist //leds
     );
     
     reg counten; //count enable reg
@@ -33,17 +33,9 @@ output[15:0] led //leds
     reg[25:0] delcnt = 26'b0; //counts delay between measurements
     wire outtogg;
 
-    assign led = countf; //assign output leds
-    assign JA1 = outen; //assign trigger output
+    assign dist = countf; //assign output leds
+    assign trigger = outen; //assign trigger output
     assign outtogg = (delcnt == 26'b0) ?1'b1:1'b0; //begin trigger pulse
-    
-    seven_seg Useven_seg( //instantiate seven seg display
-    
-    .clk (clk),
-    .msg (countf),
-    .an  (an),
-    .seg (seg)
-    );
     
     always @(posedge clk)
     begin
@@ -71,7 +63,7 @@ output[15:0] led //leds
     
     always @(posedge clk) //take in value of JA1 to mitigate metastability
     begin
-    countint <= JA0;
+    countint <= echo;
     end
 
     always @(posedge clk)
