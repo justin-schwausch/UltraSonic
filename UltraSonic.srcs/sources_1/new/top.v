@@ -70,6 +70,7 @@ output[15:0] dist //leds
     begin
     if (countint) //if echo detected
     begin
+    if(count != 22'b1111111111111111)
         count <= count + 1; //count echo pulse width
     end
     
