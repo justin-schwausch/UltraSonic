@@ -64,11 +64,11 @@ module toptest(
 //    input coast, // to be removed as with brake
 //    input ea, // input from the encoder of motor a
 //    input eb, // input from the encoder of motor b
-    input JA0, //echo from ultrasonic
+    input JA4, //echo from ultrasonic
     output[3:0] an, //anode for seven seg
     output[6:0] seg, //segment for seven seg
-    output JA1 //trigger for ultrasonic
-//    output IN1, // All that follow are motor outputs and shouldn't be moved
+    output JA7, //trigger for ultrasonic
+    output[15:0] led
 //    output IN2, 
 //    output IN3,
 //    output IN4,
@@ -80,10 +80,12 @@ module toptest(
     wire[15:0] msg; //wire for the message for the seven seg
     wire[15:0] dist; //distance from proximity sensor
     reg[15:0] us_mindist = 16'b0000101010100011; //minimum distance for us sensor before stop
-    reg[4:0] us_hist = 5'b00000; //stores the last five us readings
-    reg us_obst; //is there an obstacle detected by the us
-    wire us_outup; //ultrasonic output update flag
+    wire[4:0] us_hist; //stores the last five us readings
+    wire obst; //is there an obstacle detected by the us
     assign msg = dist;
+    
+    assign led[4:0] = us_hist;
+    assign led[5] = obst;
     
      seven_seg Useven_seg( //instantiate the seven seg display
         .clk (clk),
@@ -92,12 +94,14 @@ module toptest(
         .seg (seg)
      );
      
-     top Utop( //instantiate the ultrasonic sensor
+     ultrasonic_proximity top( //instantiate the ultrasonic sensor
         .clk     (clk),
-        .echo    (JA0),
-        .trigger (JA1),
-        .dist    (dist)
-       // .outup   (us_outup)
+        .echo    (JA4),
+        .trigger (JA7),
+        .dist    (dist),
+        .obst    (obst),
+        .us_hist    (us_hist)
+
       );
       
       // Motor control instantiaiton, Keep this at the bottom

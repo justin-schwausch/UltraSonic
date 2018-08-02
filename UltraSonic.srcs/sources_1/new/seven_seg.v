@@ -76,12 +76,12 @@ module seven_seg(
      end
    assign an = an_temp;
    
-reg [6:0] sseg_temp; // 7 bit register to hold the binary value of each input given
+reg [6:0] sseg_temp = 0; // 7 bit register to hold the binary value of each input given
 reg [26:0] count1 = 27'b0;
 reg toggle = 1'b0;
 assign seg = sseg_temp; 
     
-   always @ (*)
+   always @ (posedge clk)
     begin
      case(sseg)
       4'd0 : sseg_temp = 7'b1000000; //to display 0

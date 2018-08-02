@@ -65,6 +65,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a35tcpg236-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
@@ -154,7 +155,7 @@ set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   catch { write_mem_info -force toptest.mmi }
-  write_bitstream -force toptest.bit 
+  write_bitstream -force toptest.bit -bin_file
   catch {write_debug_probes -quiet -force toptest}
   catch {file copy -force toptest.ltx debug_nets.ltx}
   close_msg_db -file write_bitstream.pb

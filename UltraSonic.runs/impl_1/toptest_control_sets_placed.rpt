@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date         : Wed Jul 18 21:30:08 2018
-| Host         : MSI running 64-bit major release  (build 9200)
+| Date         : Wed Aug  1 19:11:37 2018
+| Host         : DESKTOP-0IINNRC running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file toptest_control_sets_placed.rpt
 | Design       : toptest
 | Device       : xc7a35t
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     5 |
-| Unused register locations in slices containing registers |    18 |
+| Number of unique control sets                            |     6 |
+| Unused register locations in slices containing registers |    24 |
 +----------------------------------------------------------+-------+
 
 
@@ -36,6 +36,7 @@ Table of Contents
 +--------+--------------+
 |      1 |            1 |
 |     10 |            1 |
+|     11 |            1 |
 |    16+ |            3 |
 +--------+--------------+
 
@@ -46,10 +47,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              45 |           13 |
+| No           | No                    | No                     |              52 |           16 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              10 |            4 |
-| Yes          | No                    | No                     |              16 |            5 |
+| Yes          | No                    | No                     |              27 |            7 |
 | Yes          | No                    | Yes                    |               0 |            0 |
 | Yes          | Yes                   | No                     |              23 |            7 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -58,14 +59,15 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-------------------------+-------------------------+------------------+----------------+
-|  Clock Signal  |      Enable Signal      |     Set/Reset Signal    | Slice Load Count | Bel Load Count |
-+----------------+-------------------------+-------------------------+------------------+----------------+
-|  clk_IBUF_BUFG | Utop/outen              | Utop/outcnt             |                1 |              1 |
-|  clk_IBUF_BUFG |                         | Utop/outcnt             |                4 |             10 |
-|  clk_IBUF_BUFG | Utop/countf[15]_i_1_n_0 |                         |                5 |             16 |
-|  clk_IBUF_BUFG | Utop/count              | Utop/countf[15]_i_1_n_0 |                6 |             22 |
-|  clk_IBUF_BUFG |                         |                         |               13 |             45 |
-+----------------+-------------------------+-------------------------+------------------+----------------+
++----------------+---------------+-----------------------+------------------+----------------+
+|  Clock Signal  | Enable Signal |    Set/Reset Signal   | Slice Load Count | Bel Load Count |
++----------------+---------------+-----------------------+------------------+----------------+
+|  clk_IBUF_BUFG | top/outtogg   | top/outcnt[9]_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG |               | top/outcnt[9]_i_1_n_0 |                4 |             10 |
+|  clk_IBUF_BUFG | top/outupreg  |                       |                4 |             11 |
+|  clk_IBUF_BUFG | top/countf    |                       |                3 |             16 |
+|  clk_IBUF_BUFG | top/count     | top/count[0]_i_1_n_0  |                6 |             22 |
+|  clk_IBUF_BUFG |               |                       |               16 |             52 |
++----------------+---------------+-----------------------+------------------+----------------+
 
 

@@ -1,8 +1,8 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.1 (win64) Build 2188600 Wed Apr  4 18:40:38 MDT 2018
-| Date             : Wed Jul 18 21:30:38 2018
-| Host             : MSI running 64-bit major release  (build 9200)
+| Date             : Wed Aug  1 19:12:05 2018
+| Host             : DESKTOP-0IINNRC running 64-bit major release  (build 9200)
 | Command          : report_power -file toptest_power_routed.rpt -pb toptest_power_summary_routed.pb -rpx toptest_power_routed.rpx
 | Design           : toptest
 | Device           : xc7a35tcpg236-1
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.086        |
+| Total On-Chip Power (W)  | 0.087        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.014        |
+| Dynamic (W)              | 0.015        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.6         |
@@ -53,15 +53,15 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |     0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      169 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       44 |     20800 |            0.21 |
+| Slice Logic    |    <0.001 |      198 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       49 |     20800 |            0.24 |
 |   CARRY4       |    <0.001 |       18 |      8150 |            0.22 |
-|   Register     |    <0.001 |       94 |     41600 |            0.23 |
-|   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |    <0.001 |      152 |       --- |             --- |
-| I/O            |     0.012 |       14 |       106 |           13.21 |
+|   Register     |    <0.001 |      112 |     41600 |            0.27 |
+|   Others       |     0.000 |        6 |       --- |             --- |
+| Signals        |    <0.001 |      170 |       --- |             --- |
+| I/O            |     0.013 |       30 |       106 |           28.30 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.086 |          |           |                 |
+| Total          |     0.087 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.011 |       0.002 |      0.010 |
+| Vccint    |       1.000 |     0.012 |       0.002 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
-| Vcco33    |       3.300 |     0.004 |       0.003 |      0.001 |
+| Vcco33    |       3.300 |     0.005 |       0.004 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -140,9 +140,9 @@ Table of Contents
 +--------------+-----------+
 | Name         | Power (W) |
 +--------------+-----------+
-| toptest      |     0.014 |
+| toptest      |     0.015 |
 |   Useven_seg |    <0.001 |
-|   Utop       |     0.001 |
+|   top        |     0.002 |
 +--------------+-----------+
 
 
